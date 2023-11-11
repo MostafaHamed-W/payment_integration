@@ -49,6 +49,8 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
           cardHolderValidator: (value) {
             if (value!.isEmpty) {
               return 'Please input a valid name';
+            } else {
+              return null;
             }
           },
           cvvCode: cvvCode,

@@ -33,7 +33,7 @@ class ThankYouView extends StatelessWidget {
                 top: -50,
                 child: CircleAvatar(
                   radius: 50,
-                  backgroundColor: Color(0xFFD9D9D9),
+                  backgroundColor: Color(0xFFe2e2e2),
                   child: CustomCheckShape(),
                 ),
               ),

@@ -25,20 +25,20 @@ class CartView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              OrderInfoItem(
+              const OrderInfoItem(
                 mainText: 'Order Subtotal',
                 priceText: r'$42.97',
-                textStyle: Styles.style20,
+                mainTextStyle: Styles.style20,
               ),
-              OrderInfoItem(
+              const OrderInfoItem(
                 mainText: 'Discount',
                 priceText: r'$0',
-                textStyle: Styles.style20,
+                mainTextStyle: Styles.style20,
               ),
-              OrderInfoItem(
+              const OrderInfoItem(
                 mainText: 'Shipping',
                 priceText: r'$9',
-                textStyle: Styles.style20,
+                mainTextStyle: Styles.style20,
               ),
               const Divider(
                 thickness: 2,
@@ -50,7 +50,7 @@ class CartView extends StatelessWidget {
               const OrderInfoItem(
                 mainText: 'Total',
                 priceText: r'$50.97',
-                textStyle: Styles.styleBold20,
+                mainTextStyle: Styles.styleBold20,
               ),
               const SizedBox(height: 17),
               CompletePayButton(

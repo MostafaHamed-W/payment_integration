@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class OrderInfoItem extends StatelessWidget {
   final String mainText;
   final String priceText;
-  final TextStyle textStyle;
+  final TextStyle mainTextStyle;
+  final TextStyle? priceTextStyle;
   const OrderInfoItem({
     super.key,
     required this.mainText,
     required this.priceText,
-    required this.textStyle,
+    required this.mainTextStyle,
+    this.priceTextStyle,
   });
 
   @override
@@ -18,11 +20,11 @@ class OrderInfoItem extends StatelessWidget {
       children: [
         Text(
           mainText,
-          style: textStyle,
+          style: mainTextStyle,
         ),
         Text(
           priceText,
-          style: textStyle,
+          style: priceTextStyle ?? mainTextStyle,
         ),
       ],
     );
