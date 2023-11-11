@@ -4,6 +4,7 @@ import 'package:payment/features/checkout/presentation/views/payment_details_vie
 import '../widgets/complete_pay_button.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/order_info_item.dart';
+import '../widgets/payment_method_listview.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -56,12 +57,34 @@ class CartView extends StatelessWidget {
               CompletePayButton(
                   btnText: 'Complete Payment',
                   onPress: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PaymentDetailsView(),
-                      ),
-                    );
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return SafeArea(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 30),
+                                  child: PaymentMethodsListView(),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                                  child: CompletePayButton(
+                                    btnText: 'Continue',
+                                    onPress: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) => const PaymentDetailsView(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        });
                   }),
               const SizedBox(height: 20),
             ],

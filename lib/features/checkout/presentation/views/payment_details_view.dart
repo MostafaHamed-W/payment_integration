@@ -28,9 +28,9 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
 
         child: CustomScrollView(
           slivers: [
-            const SliverToBoxAdapter(
-              child: PaymentMethodsListView(),
-            ),
+            // const SliverToBoxAdapter(
+            //   child: PaymentMethodsListView(),
+            // ),
             SliverToBoxAdapter(
               // using credit card package
               child: CustomCreditCard(
@@ -57,10 +57,10 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                           MaterialPageRoute(builder: (context) => const ThankYouView()),
                         );
                       } else {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => const ThankYouView()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ThankYouView()),
+                        );
                         autovalidateMode = AutovalidateMode.always;
                       }
                     },
