@@ -21,7 +21,8 @@ class CustomPayTextField extends StatelessWidget {
             style: Styles.style20,
           ),
           TextFormField(
-            onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
+            onTapOutside: (event) =>
+                FocusManager.instance.primaryFocus?.unfocus(),
             cursorColor: Colors.blue,
             cursorHeight: 20,
             textAlignVertical: TextAlignVertical.center,

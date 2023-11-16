@@ -3,7 +3,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/utils/styles.dart';
 
-AppBar buildAppBar(BuildContext context, {required String title, bool isFirstPage = false}) {
+AppBar buildAppBar(BuildContext context,
+    {required String title, bool isFirstPage = false}) {
   return AppBar(
     leading: IconButton(
       onPressed: () {

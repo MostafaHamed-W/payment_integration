@@ -69,13 +69,15 @@ class CartView extends StatelessWidget {
                                   child: PaymentMethodsListView(),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                                  padding: const EdgeInsets.only(
+                                      right: 20, left: 20, bottom: 20),
                                   child: CompletePayButton(
                                     btnText: 'Continue',
                                     onPress: () {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (context) => const PaymentDetailsView(),
+                                          builder: (context) =>
+                                              const PaymentDetailsView(),
                                         ),
                                       );
                                     },

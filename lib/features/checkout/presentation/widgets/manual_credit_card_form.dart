@@ -35,7 +35,8 @@ class ManualCreditCardForm extends StatelessWidget {
             child: SmoothPageIndicator(
               controller: pageController,
               count: 3,
-              effect: const SlideEffect(activeDotColor: Colors.black, dotHeight: 12, dotWidth: 12),
+              effect: const SlideEffect(
+                  activeDotColor: Colors.black, dotHeight: 12, dotWidth: 12),
               onDotClicked: (index) {
                 pageController.animateToPage(
                   index,
