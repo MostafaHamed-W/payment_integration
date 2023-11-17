@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:payment/core/utils/api_keys.dart';
+import 'package:payment/core/utils/services/api_service.dart';
+import 'package:payment/core/utils/services/stripe_service.dart';
 import 'package:payment/core/utils/styles.dart';
+import 'package:payment/features/checkout/data/models/payment_intent_model/payment_input_model.dart';
 import 'package:payment/features/checkout/presentation/views/payment_details_view.dart';
 import '../widgets/complete_pay_button.dart';
 import '../widgets/custom_app_bar.dart';
@@ -69,15 +73,19 @@ class CartView extends StatelessWidget {
                                   child: PaymentMethodsListView(),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 20, left: 20, bottom: 20),
+                                  padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
                                   child: CompletePayButton(
                                     btnText: 'Continue',
                                     onPress: () {
+                                      PaymentInputModel paymentInputModelTest = PaymentInputModel(
+                                        amount: 2000,
+                                        currency: 'usd',
+                                      );
+                                      StripeServices stripeServices = StripeServices();
+                                      stripeServices.createPaymentIntent(paymentInputModelTest);
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              const PaymentDetailsView(),
+                                          builder: (context) => const PaymentDetailsView(),
                                         ),
                                       );
                                     },

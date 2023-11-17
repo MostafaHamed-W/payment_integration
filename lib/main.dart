@@ -19,10 +19,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-//steps of integration process
-/*
-1- PaymentIntentObject createPaymentIntent(amount,currency)
-2- initPaymentSheet()
-3- presentPaymentSheet()
-*/

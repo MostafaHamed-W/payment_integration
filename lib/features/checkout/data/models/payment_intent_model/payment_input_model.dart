@@ -1,8 +1,8 @@
-class PaymentInput {
+class PaymentInputModel {
   double amount;
   String currency;
 
-  PaymentInput({required this.amount, required this.currency});
+  PaymentInputModel({required this.amount, required this.currency});
 
   toJson() {
     return {

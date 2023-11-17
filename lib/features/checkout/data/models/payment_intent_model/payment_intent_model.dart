@@ -93,8 +93,7 @@ class PaymentIntentModel {
       amountCapturable: json['amount_capturable'] as int?,
       amountDetails: json['amount_details'] == null
           ? null
-          : AmountDetails.fromJson(
-              json['amount_details'] as Map<String, dynamic>),
+          : AmountDetails.fromJson(json['amount_details'] as Map<String, dynamic>),
       amountReceived: json['amount_received'] as int?,
       application: json['application'] as dynamic,
       applicationFeeAmount: json['application_fee_amount'] as dynamic,
@@ -118,12 +117,10 @@ class PaymentIntentModel {
       nextAction: json['next_action'] as dynamic,
       onBehalfOf: json['on_behalf_of'] as dynamic,
       paymentMethod: json['payment_method'] as dynamic,
-      paymentMethodConfigurationDetails:
-          json['payment_method_configuration_details'] as dynamic,
+      paymentMethodConfigurationDetails: json['payment_method_configuration_details'] as dynamic,
       paymentMethodOptions: json['payment_method_options'] == null
           ? null
-          : PaymentMethodOptions.fromJson(
-              json['payment_method_options'] as Map<String, dynamic>),
+          : PaymentMethodOptions.fromJson(json['payment_method_options'] as Map<String, dynamic>),
       paymentMethodTypes: json['payment_method_types'] as List<String>?,
       processing: json['processing'] as dynamic,
       receiptEmail: json['receipt_email'] as dynamic,
@@ -165,8 +162,7 @@ class PaymentIntentModel {
         'next_action': nextAction,
         'on_behalf_of': onBehalfOf,
         'payment_method': paymentMethod,
-        'payment_method_configuration_details':
-            paymentMethodConfigurationDetails,
+        'payment_method_configuration_details': paymentMethodConfigurationDetails,
         'payment_method_options': paymentMethodOptions?.toJson(),
         'payment_method_types': paymentMethodTypes,
         'processing': processing,
