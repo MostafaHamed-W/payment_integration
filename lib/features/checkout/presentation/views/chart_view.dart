@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment/core/utils/styles.dart';
-import 'package:payment/features/checkout/data/models/payment_input_model.dart/payment_input_model.dart';
-import 'package:payment/features/checkout/data/repos/checkout_repo.dart';
 import 'package:payment/features/checkout/data/repos/checkout_repo_impl.dart';
 import 'package:payment/features/checkout/presentation/manager/cubit/payment_cubit.dart';
-import 'package:payment/features/checkout/presentation/views/thank_you_view.dart';
 import 'package:payment/features/checkout/presentation/widgets/payment_methods_bottom_sheet.dart';
 import '../widgets/complete_pay_button.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/order_info_item.dart';
-import '../widgets/payment_method_listview.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});

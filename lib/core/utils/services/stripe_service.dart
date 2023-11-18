@@ -24,7 +24,6 @@ class StripeServices {
     );
 
     var model = PaymentIntentModel.fromJson(response.data);
-    print(model);
     return model;
   }
 
