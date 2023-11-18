@@ -5,9 +5,11 @@ import '../../../../core/utils/styles.dart';
 class CompletePayButton extends StatelessWidget {
   final void Function()? onPress;
   final String btnText;
+  final bool isLoading;
   const CompletePayButton({
     super.key,
     this.onPress,
+    this.isLoading = false,
     required this.btnText,
   });
 
@@ -23,10 +25,14 @@ class CompletePayButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Center(
-          child: Text(
-            btnText,
-            style: Styles.style22,
-          ),
+          child: isLoading
+              ? const CircularProgressIndicator(
+                  color: Colors.white,
+                )
+              : Text(
+                  btnText,
+                  style: Styles.style22,
+                ),
         ),
       ),
     );

@@ -1,12 +1,12 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:payment/core/utils/services/stripe_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment/core/utils/styles.dart';
 import 'package:payment/features/checkout/data/models/payment_input_model.dart/payment_input_model.dart';
 import 'package:payment/features/checkout/data/repos/checkout_repo.dart';
 import 'package:payment/features/checkout/data/repos/checkout_repo_impl.dart';
-import 'package:payment/features/checkout/presentation/views/payment_details_view.dart';
+import 'package:payment/features/checkout/presentation/manager/cubit/payment_cubit.dart';
 import 'package:payment/features/checkout/presentation/views/thank_you_view.dart';
+import 'package:payment/features/checkout/presentation/widgets/payment_methods_bottom_sheet.dart';
 import '../widgets/complete_pay_button.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/order_info_item.dart';
@@ -66,45 +66,9 @@ class CartView extends StatelessWidget {
                     showModalBottomSheet(
                         context: context,
                         builder: (BuildContext context) {
-                          return SafeArea(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 30),
-                                  child: PaymentMethodsListView(),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
-                                  child: CompletePayButton(
-                                    btnText: 'Continue',
-                                    onPress: () async {
-                                      PaymentInputModel paymentInputModelTest = PaymentInputModel(
-                                        amount: 200,
-                                        currency: 'usd',
-                                      );
-                                      // StripeServices stripeServices = StripeServices();
-                                      // stripeServices.createPaymentIntent(paymentInputModelTest);
-                                      final CheckoutRepoImpl checkoutRepoImpl = CheckoutRepoImpl();
-                                      var data = await checkoutRepoImpl.makePayment(
-                                          paymentInputModel: paymentInputModelTest);
-                                      data.fold((l) {
-                                        print(l.errMessage);
-                                        ;
-                                      }, (r) {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (context) => ThankYouView(
-                                              amount: r,
-                                            ),
-                                          ),
-                                        );
-                                      });
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
+                          return BlocProvider(
+                            create: (context) => PaymentCubit(CheckoutRepoImpl()),
+                            child: const PaymentMethodsBottomSheet(),
                           );
                         });
                   }),
