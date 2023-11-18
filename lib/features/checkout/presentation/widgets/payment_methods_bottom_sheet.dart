@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment/core/utils/api_keys.dart';
+import 'package:payment/core/utils/services/stripe_service.dart';
 import 'package:payment/features/checkout/data/models/payment_input_model.dart/payment_input_model.dart';
 import 'package:payment/features/checkout/presentation/manager/cubit/payment_cubit.dart';
 import 'package:payment/features/checkout/presentation/views/thank_you_view.dart';
@@ -13,7 +15,8 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PaymentInputModel inputModel = PaymentInputModel(amount: 350, currency: 'usd');
+    PaymentInputModel inputModel =
+        PaymentInputModel(amount: 350, currency: 'usd', customId: ApiKeys.customerId);
     return SafeArea(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -58,7 +61,7 @@ class CustomButtonBlocConsumer extends StatelessWidget {
         return CompletePayButton(
           btnText: 'Continue',
           isLoading: state is PaymentLoading ? true : false,
-          onPress: () async {
+          onPress: () {
             BlocProvider.of<PaymentCubit>(context).makePayment(inputModel);
           },
         );

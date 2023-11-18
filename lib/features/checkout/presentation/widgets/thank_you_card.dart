@@ -112,7 +112,8 @@ class ThankYouCard extends StatelessWidget {
                     height: 60,
                     decoration: ShapeDecoration(
                       shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1.50, color: Color(0xFF34A853)),
+                        side: const BorderSide(
+                            width: 1.50, color: Color(0xFF34A853)),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
@@ -134,7 +135,8 @@ class ThankYouCard extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: ((MediaQuery.of(context).size.height * 0.2 + 17) / 2) - 35,
+              height:
+                  ((MediaQuery.of(context).size.height * 0.2 + 17) / 2) - 35,
             )
           ],
         ),

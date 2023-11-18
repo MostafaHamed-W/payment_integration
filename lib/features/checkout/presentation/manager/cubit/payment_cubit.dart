@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment/features/checkout/data/models/ephemeral_key/ephemeral_key.dart';
 import 'package:payment/features/checkout/data/models/payment_input_model.dart/payment_input_model.dart';
 import 'package:payment/features/checkout/data/repos/checkout_repo.dart';
 
@@ -19,11 +20,5 @@ class PaymentCubit extends Cubit<PaymentState> {
     }, (r) {
       emit(PaymentSuccess(amount: r));
     });
-  }
-
-  @override
-  void onChange(Change<PaymentState> change) {
-    log(change.toString());
-    super.onChange(change);
   }
 }

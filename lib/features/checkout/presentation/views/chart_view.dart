@@ -63,7 +63,8 @@ class CartView extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return BlocProvider(
-                            create: (context) => PaymentCubit(CheckoutRepoImpl()),
+                            create: (context) =>
+                                PaymentCubit(CheckoutRepoImpl()),
                             child: const PaymentMethodsBottomSheet(),
                           );
                         });

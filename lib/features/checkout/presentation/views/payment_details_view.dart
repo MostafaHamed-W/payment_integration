@@ -44,7 +44,8 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                   child: CompletePayButton(
                     btnText: 'Pay',
                     onPress: () {
