@@ -11,7 +11,7 @@ class ApiService {
   }) async {
     final response = await dio.post(
       url,
-      data: {'amount': 2000, 'currency': 'usd'},
+      data: body,
       options: Options(
         headers: {
           "Authorization": "Bearer $token",

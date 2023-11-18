@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:payment/core/utils/constants.dart';
+import 'package:payment/core/utils/api_keys.dart';
 import 'package:payment/features/checkout/presentation/views/chart_view.dart';
 
 void main() async {
-  Stripe.publishableKey = stripePublishableKey;
+  Stripe.publishableKey = ApiKeys.stripePublishableKey;
   runApp(const HomeView());
 }
 

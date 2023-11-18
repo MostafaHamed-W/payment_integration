@@ -7,7 +7,8 @@ import '../widgets/custom_white_circle.dart';
 import '../widgets/thank_you_card.dart';
 
 class ThankYouView extends StatelessWidget {
-  const ThankYouView({super.key});
+  final double amount;
+  const ThankYouView({super.key, required this.amount});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,9 @@ class ThankYouView extends StatelessWidget {
           child: Stack(
             clipBehavior: Clip.none,
             children: [
-              const ThankYouCard(),
+              ThankYouCard(
+                amount: amount,
+              ),
               Positioned(
                   bottom: MediaQuery.of(context).size.height * 0.2 + 17,
                   left: 0,

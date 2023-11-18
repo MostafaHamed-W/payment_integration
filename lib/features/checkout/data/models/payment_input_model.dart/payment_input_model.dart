@@ -5,8 +5,9 @@ class PaymentInputModel {
   PaymentInputModel({required this.amount, required this.currency});
 
   toJson() {
+    double price = amount * 100;
     return {
-      "amount": amount,
+      "amount": price.toInt(),
       "currency": currency,
     };
   }

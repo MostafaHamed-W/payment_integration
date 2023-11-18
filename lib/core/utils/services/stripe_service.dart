@@ -1,7 +1,7 @@
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payment/core/utils/api_keys.dart';
 import 'package:payment/core/utils/services/api_service.dart';
-import 'package:payment/features/checkout/data/models/payment_intent_model/payment_input_model.dart';
+import 'package:payment/features/checkout/data/models/payment_input_model.dart/payment_input_model.dart';
 import 'package:payment/features/checkout/data/models/payment_intent_model/payment_intent_model.dart';
 
 //steps of integration process
