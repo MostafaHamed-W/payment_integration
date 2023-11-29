@@ -18,7 +18,8 @@ class StripeServices {
   final ApiService apiService = ApiService();
 
   // 1- create payment intent
-  Future<PaymentIntentModel> createPaymentIntent(PaymentInputModel paymentInputModel) async {
+  Future<PaymentIntentModel> createPaymentIntent(
+      PaymentInputModel paymentInputModel) async {
     var response = await apiService.post(
       url: 'https://api.stripe.com/v1/payment_intents',
       body: paymentInputModel.toJson(),
@@ -52,9 +53,11 @@ class StripeServices {
   }
 
   // make one method that call the previous three models to make payment process
-  Future<void> makePayment({required PaymentInputModel paymentInputModel}) async {
+  Future<void> makePayment(
+      {required PaymentInputModel paymentInputModel}) async {
     var paymentIntentModel = await createPaymentIntent(paymentInputModel);
-    EphemeralKeyModel ephemeralKeyModel = await createEphemeralKey(paymentInputModel);
+    EphemeralKeyModel ephemeralKeyModel =
+        await createEphemeralKey(paymentInputModel);
     await initPaymentSheet(InitSheetModel(
       clientSecret: paymentIntentModel.clientSecret,
       ephemeralKey: ephemeralKeyModel.secret,
@@ -64,7 +67,8 @@ class StripeServices {
   }
 
   //create ephemeral key
-  Future<EphemeralKeyModel> createEphemeralKey(PaymentInputModel paymentInputModel) async {
+  Future<EphemeralKeyModel> createEphemeralKey(
+      PaymentInputModel paymentInputModel) async {
     Dio dio = Dio();
     final response = await dio.post(
       'https://api.stripe.com/v1/ephemeral_keys',

@@ -19,7 +19,8 @@ class EphemeralKeyModel {
     this.secret,
   });
 
-  factory EphemeralKeyModel.fromJson(Map<String, dynamic> json) => EphemeralKeyModel(
+  factory EphemeralKeyModel.fromJson(Map<String, dynamic> json) =>
+      EphemeralKeyModel(
         id: json['id'] as String?,
         object: json['object'] as String?,
         associatedObjects: (json['associated_objects'] as List<dynamic>?)
@@ -34,7 +35,8 @@ class EphemeralKeyModel {
   Map<String, dynamic> toJson() => {
         'id': id,
         'object': object,
-        'associated_objects': associatedObjects?.map((e) => e.toJson()).toList(),
+        'associated_objects':
+            associatedObjects?.map((e) => e.toJson()).toList(),
         'created': created,
         'expires': expires,
         'livemode': livemode,

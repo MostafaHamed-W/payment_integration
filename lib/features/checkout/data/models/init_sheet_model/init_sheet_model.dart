@@ -4,5 +4,7 @@ class InitSheetModel {
   final String? customerId;
 
   InitSheetModel(
-      {required this.clientSecret, required this.ephemeralKey, required this.customerId});
+      {required this.clientSecret,
+      required this.ephemeralKey,
+      required this.customerId});
 }
